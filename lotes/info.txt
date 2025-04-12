@@ -1,0 +1,52 @@
+Este ejercicio de lotes tiene como objetivo practicar y desarrollar habilidades en el manejo de **estructuras de control**, **procesamiento de datos secuenciales** y **análisis de datos divididos en grupos**. Aquí hay un desglose de su propósito:
+
+---
+
+### **1. Procesamiento de datos en lotes y sublotes**
+- **Lote**: Representa un conjunto de datos que se procesan en una sola ejecución del programa.
+- **Sublotes**: Son divisiones dentro del lote, separadas por un valor específico (en este caso, el número `0`).
+
+Este tipo de procesamiento es útil en situaciones donde los datos están organizados en grupos o categorías, y necesitas analizar cada grupo por separado.
+
+---
+
+### **2. Análisis de datos por grupos**
+El ejercicio te enseña a realizar cálculos y análisis dentro de cada sublote, como:
+- **Promedio**: Calcular el promedio de los valores en cada sublote.
+- **Mínimo**: Encontrar el valor más pequeño en cada sublote.
+- **Máximo global**: Identificar el valor más grande en todo el lote y determinar dónde se encuentra.
+
+Esto es útil en aplicaciones como:
+- Procesamiento de datos financieros (por ejemplo, calcular promedios de ventas por región).
+- Análisis de datos científicos (por ejemplo, encontrar máximos y mínimos en experimentos divididos en fases).
+
+---
+
+### **3. Manejo de casos especiales**
+El ejercicio también te ayuda a manejar casos especiales, como:
+- **Lote vacío**: Cuando no hay datos válidos.
+- **Sublotes vacíos**: Cuando un sublote no contiene valores (solo ceros consecutivos).
+- **Fin del lote**: Detectar cuándo detener el procesamiento (número negativo).
+
+Esto es importante para aprender a escribir programas robustos que puedan manejar entradas inesperadas o incompletas.
+
+---
+
+### **4. Aplicaciones prácticas**
+Este tipo de lógica es común en muchos escenarios del mundo real, como:
+- **Procesamiento de archivos de datos**: Donde los datos están organizados en bloques o registros.
+- **Análisis de logs**: Dividir registros de eventos en períodos de tiempo o categorías.
+- **Agrupación de datos**: Por ejemplo, calcular estadísticas por departamento en una empresa.
+
+---
+
+### **5. Desarrollo de habilidades clave**
+Este ejercicio refuerza conceptos fundamentales de programación:
+- **Estructuras de control**: Uso de bucles (`while`, `if`) y condiciones.
+- **Acumuladores y contadores**: Para realizar cálculos como sumas, promedios y conteos.
+- **Variables de estado**: Como `primerValor` para manejar el mínimo del sublote.
+- **Manejo de entradas y salidas**: Leer datos del usuario y mostrar resultados.
+
+---
+
+En resumen, este ejercicio es una práctica esencial para aprender a procesar y analizar datos organizados en grupos, algo que es muy común en programación y análisis de datos.
