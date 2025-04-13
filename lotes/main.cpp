@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     int valor, suma = 0, cantidad = 0, totalSublotes = 0;
-    int maximoGlobal = std::numeric_limits<int>::min();
+    int maximoGlobal = std::numeric_limits<int>::min(); // 
     int subloteMaximo = 0, posicionMaximo = 0;
     int minimoSublote = 0;
     bool primerValor = true; // Para manejar el minimo del sublote
