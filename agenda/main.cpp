@@ -79,8 +79,6 @@ Contacto buscarContacto(char nombre[], char apellido[]){
 void mostrarContacto(Contacto c){
     cout << endl;
     cout << "\t\t----------------------------------------" << endl;
-    cout << "\t\tContacto encontrado:" << endl;
-    cout << "\t\t----------------------------------------" << endl;
     cout << "\t\tNombre: " << c.nombre << endl;
     cout << "\t\tApellido: " << c.apellido << endl;
     cout << "\t\tEdad: " << c.edad << endl;
@@ -89,15 +87,31 @@ void mostrarContacto(Contacto c){
     cout << endl;
 }
 
+void listarContacto(){
+    ifstream entrada; //entrada significa que se va a leer el archivo
+    entrada.open(DIR_ARCHIVO, ios::binary); // Abre el archivo en modo binario
+
+    Contacto c; // Se crea una variable de tipo Contacto para leer los datos del archivo
+   if(entrada.good()){
+    while(entrada.read((char*) &c, sizeof(Contacto))){ // Lee el archivo hasta que no haya más datos
+        mostrarContacto(c);
+    }
+    entrada.close(); // Cierra el archivo
+   }else{
+        cout << "Error al abrir el archivo." << endl; // Si no se puede abrir el archivo, muestra un mensaje de error
+        entrada.close(); // Cierra el archivo
+    }
+};
 
 int main () {
  /* Contacto c = leerContacto();
  ingresarContacto(c); */
- if(existeContacto("Martin","Williner")){
-    Contacto c = buscarContacto("Martin","Williner");
+ /* if(existeContacto("","")){
+    Contacto c = buscarContacto("","");
     mostrarContacto(c);
  }else{
     cout << "El contacto no existe." << endl;
- }
+ } */
+listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos
  return 0;
 }
