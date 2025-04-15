@@ -103,6 +103,28 @@ void listarContacto(){
     }
 };
 
+void eliminarContacto(char nombre[],char apellido[]){
+    ifstream entrada; // Se usa ifstream para leer el archivo
+    ofstream temporal;
+    entrada.open(DIR_ARCHIVO, ios::binary); // Abre el archivo en modo binario
+    temporal.open("temp.dat", ios::binary); // Abre un archivo temporal para escribir los contactos que no se van a eliminar
+    Contacto c;
+    if (entrada.good()){
+        while (entrada.read((char*) &c, sizeof(Contacto))){
+            if (strcmp(c.nombre, nombre) != 0 || strcmp(c.apellido, apellido) != 0){
+                // Si el contacto no es el que se va a eliminar, lo escribe en el archivo temporal
+                temporal.write(reinterpret_cast<char*>(&c), sizeof(Contacto));
+            }
+        }
+    }
+    
+    entrada.close(); // Cierra el archivo
+    temporal.close(); // Cierra el archivo temporal
+    
+    remove(DIR_ARCHIVO); // Elimina el archivo original
+    rename("temp.dat", DIR_ARCHIVO); // Renombra el archivo temporal al nombre del archivo original
+}
+
 int main () {
  /* Contacto c = leerContacto();
  ingresarContacto(c); */
@@ -113,5 +135,8 @@ int main () {
     cout << "El contacto no existe." << endl;
  } */
 listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos
+eliminarContacto("Martin","W"); // Llama a la función eliminarContacto para eliminar un contacto
+listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos después de eliminar uno
  return 0;
 }
+
