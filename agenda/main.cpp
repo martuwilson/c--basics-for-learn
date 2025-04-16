@@ -125,18 +125,47 @@ void eliminarContacto(char nombre[],char apellido[]){
     rename("temp.dat", DIR_ARCHIVO); // Renombra el archivo temporal al nombre del archivo original
 }
 
+void actualizarContacto(char nombre[], char apellido[]){
+    ifstream entrada; // Se usa ifstream para leer el archivo
+    ofstream temporal;
+    entrada.open(DIR_ARCHIVO, ios::binary); 
+    temporal.open("temp.dat", ios::binary); 
+    Contacto c;
+    if (entrada.good()){
+        while (entrada.read((char*) &c, sizeof(Contacto))){
+            if (strcmp(c.nombre, nombre) == 0 || strcmp(c.apellido, apellido) == 0){
+                Contacto nuevoContacto = leerContacto(); // Llama a la función leerContacto para obtener los nuevos datos
+                
+                temporal.write(reinterpret_cast<char*>(&nuevoContacto), sizeof(Contacto)); // Escribe el nuevo contacto en el archivo temporal
+            }else{
+                // Si el contacto no es el que se va a actualizar, lo escribe en el archivo temporal
+                temporal.write(reinterpret_cast<char*>(&c), sizeof(Contacto));
+            }
+        }
+    }
+    
+    entrada.close(); // Cierra el archivo
+    temporal.close(); // Cierra el archivo temporal
+    
+    remove(DIR_ARCHIVO); // Elimina el archivo original
+    rename("temp.dat", DIR_ARCHIVO); // Renombra el archivo temporal al nombre del archivo original
+}
+
 int main () {
  /* Contacto c = leerContacto();
  ingresarContacto(c); */
- /* if(existeContacto("","")){
+/*  if(existeContacto("","")){
     Contacto c = buscarContacto("","");
     mostrarContacto(c);
  }else{
     cout << "El contacto no existe." << endl;
  } */
-listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos
-eliminarContacto("Martin","W"); // Llama a la función eliminarContacto para eliminar un contacto
-listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos después de eliminar uno
+//listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos
+//eliminarContacto("",""); // Llama a la función eliminarContacto para eliminar un contacto
+//listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos después de eliminar uno
+
+//actualizarContacto("",""); // Llama a la función actualizarContacto para actualizar un contacto
+listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos después de actualizar uno
  return 0;
 }
 
