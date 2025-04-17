@@ -13,7 +13,7 @@ struct Contacto {
     int edad;
     char correo[45];
 };
-
+/* FUNCIONES DEL PROGRAMA */
 void ingresarContacto(Contacto c){
     ofstream salida;
     salida.open(DIR_ARCHIVO, ios::binary | ios::app); // Abre el archivo en modo binario y de append
@@ -150,6 +150,30 @@ void actualizarContacto(char nombre[], char apellido[]){
     remove(DIR_ARCHIVO); // Elimina el archivo original
     rename("temp.dat", DIR_ARCHIVO); // Renombra el archivo temporal al nombre del archivo original
 }
+/* FIN FUNCIONES DEL PROGRAMA */
+
+
+/* FUNCIONES PARA EL MENU */
+
+void menuIngresar(){
+    cout << "\t\t\tINGRESO DEL NUEVO CONTACTO" << endl;
+
+    Contacto nuevo = leerContacto(); // Llama a la función leerContacto para obtener los datos del nuevo contacto
+    if (!existeContacto(nuevo.nombre, nuevo.apellido)) {
+        ingresarContacto(nuevo); // Llama a la función ingresarContacto para guardar el nuevo contacto
+        cout << "\t\t\tContacto ingresado correctamente." << endl;
+    } else {
+        cout << "\t\t\tEl contacto ya existe." << endl;
+    }
+
+};
+void menuBuscar(){};
+void menuListar(){};
+void menuEliminar(){};
+void menuActualizar(){};
+
+
+/* FIN  FUNCIONES PARA EL MENU */
 
 int main () {
  /* Contacto c = leerContacto();
