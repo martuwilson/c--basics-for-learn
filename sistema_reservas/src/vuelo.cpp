@@ -12,3 +12,5 @@ void Vuelo::mostrarDetalles() const {
               << aerolinea << " | $" << precio << " | Asientos: "
               << asientosDisponibles << std::endl;
 }
+
+double Vuelo::getPrecio() const { return precio; }

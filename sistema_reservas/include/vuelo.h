@@ -14,6 +14,8 @@ public:
     Vuelo(int id, std::string origen, std::string destino, std::string fecha,
           std::string hora, std::string aerolinea, int asientos, double precio);
     void mostrarDetalles() const;
+
+    double getPrecio() const;
 };
 
 #endif
