@@ -167,7 +167,22 @@ void menuIngresar(){
     }
 
 };
-void menuBuscar(){};
+void menuBuscar(){
+    cout << "\t\t\tBUSQUEDA DE CONTACTO" << endl;
+    char nombre[30], apellido[45];
+    cout << "\t\tNombre: ";
+    cin.getline(nombre, 30);
+    cout << "\t\tApellido: ";
+    cin.getline(apellido, 45);
+    
+    if (existeContacto(nombre, apellido)) {
+        Contacto c = buscarContacto(nombre, apellido); // Llama a la función buscarContacto para obtener los datos del contacto
+        mostrarContacto(c); // Llama a la función mostrarContacto para mostrar los datos del contacto
+    } else {
+        cout << "\t\tEl contacto no existe." << endl;
+    }
+
+};
 void menuListar(){};
 void menuEliminar(){};
 void menuActualizar(){};
