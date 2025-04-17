@@ -196,8 +196,27 @@ void menuEliminar(){
     cin.getline(apellido, 45);
     
     if (existeContacto(nombre, apellido)) {
-        eliminarContacto(nombre, apellido); // Llama a la función eliminarContacto para eliminar el contacto
-        cout << "\t\t\tContacto eliminado correctamente." << endl;
+        Contacto eliminar = buscarContacto(nombre, apellido); // Llama a la función buscarContacto para obtener los datos del contacto
+        int opcion;
+        cout << "\t\t¿Está seguro de que desea eliminar el contacto? (1: Sí, 0: No): ";
+        do{
+            cin >> opcion;
+            cin.ignore(); // Limpiar el buffer de entrada
+            if (opcion != 1 && opcion != 0) {
+                cout << "\t\tOpción inválida. Intente nuevamente: ";
+            }
+
+            switch (opcion) {
+                case 1:
+                    eliminarContacto(eliminar.nombre, eliminar.apellido); // Llama a la función eliminarContacto para eliminar el contacto
+                    cout << "\t\t\tContacto eliminado correctamente." << endl;
+                    break;
+                case 0:
+                    cout << "\t\t\tEl contacto no fue eliminado." << endl;
+                    break;
+            }
+
+        } while (opcion != 1 && opcion != 0);
     } else {
         cout << "\t\tEl contacto no existe." << endl;
     }
