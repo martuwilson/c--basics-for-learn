@@ -202,7 +202,21 @@ void menuEliminar(){
         cout << "\t\tEl contacto no existe." << endl;
     }
 };
-void menuActualizar(){};
+void menuActualizar(){
+    cout << "\t\t\tACTUALIZAR CONTACTO" << endl;
+    char nombre[30], apellido[45];
+    cout << "\t\tNombre: ";
+    cin.getline(nombre, 30);
+    cout << "\t\tApellido: ";
+    cin.getline(apellido, 45);
+    
+    if (existeContacto(nombre, apellido)) {
+        actualizarContacto(nombre, apellido); // Llama a la función actualizarContacto para actualizar el contacto
+        cout << "\t\t\tContacto actualizado correctamente." << endl;
+    } else {
+        cout << "\t\tEl contacto no existe." << endl;
+    }
+};
 
 
 /* FIN  FUNCIONES PARA EL MENU */
