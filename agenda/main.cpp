@@ -187,7 +187,21 @@ void menuListar(){
     cout << "\t\t\tLISTA DE CONTACTOS" << endl;
     listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos
 };
-void menuEliminar(){};
+void menuEliminar(){
+    cout << "\t\t\tELIMINAR CONTACTO" << endl;
+    char nombre[30], apellido[45];
+    cout << "\t\tNombre: ";
+    cin.getline(nombre, 30);
+    cout << "\t\tApellido: ";
+    cin.getline(apellido, 45);
+    
+    if (existeContacto(nombre, apellido)) {
+        eliminarContacto(nombre, apellido); // Llama a la función eliminarContacto para eliminar el contacto
+        cout << "\t\t\tContacto eliminado correctamente." << endl;
+    } else {
+        cout << "\t\tEl contacto no existe." << endl;
+    }
+};
 void menuActualizar(){};
 
 
