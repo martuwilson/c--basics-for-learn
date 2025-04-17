@@ -183,7 +183,10 @@ void menuBuscar(){
     }
 
 };
-void menuListar(){};
+void menuListar(){
+    cout << "\t\t\tLISTA DE CONTACTOS" << endl;
+    listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos
+};
 void menuEliminar(){};
 void menuActualizar(){};
 
