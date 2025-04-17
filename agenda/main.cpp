@@ -230,7 +230,10 @@ void menuActualizar(){
     cin.getline(apellido, 45);
     
     if (existeContacto(nombre, apellido)) {
-        actualizarContacto(nombre, apellido); // Llama a la función actualizarContacto para actualizar el contacto
+        Contacto buscado = buscarContacto(nombre, apellido); // Llama a la función buscarContacto para obtener los datos del contacto
+        cout << "\t\t\tContacto a modificar:" << endl;
+        mostrarContacto(buscado); // Llama a la función mostrarContacto para mostrar los datos del contacto
+        actualizarContacto(buscado.nombre, buscado.apellido); // Llama a la función actualizarContacto para actualizar el contacto
         cout << "\t\t\tContacto actualizado correctamente." << endl;
     } else {
         cout << "\t\tEl contacto no existe." << endl;
