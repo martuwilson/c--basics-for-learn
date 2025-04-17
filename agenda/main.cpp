@@ -244,20 +244,49 @@ void menuActualizar(){
 /* FIN  FUNCIONES PARA EL MENU */
 
 int main () {
- /* Contacto c = leerContacto();
- ingresarContacto(c); */
-/*  if(existeContacto("","")){
-    Contacto c = buscarContacto("","");
-    mostrarContacto(c);
- }else{
-    cout << "El contacto no existe." << endl;
- } */
-//listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos
-//eliminarContacto("",""); // Llama a la función eliminarContacto para eliminar un contacto
-//listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos después de eliminar uno
+    
+    cout << "\t\t\tAGENDA DE CONTACTOS" << endl;
+    cout << "\t\t\t---------------------" << endl;
+    cout << "\t\t\t1. Ingresar contacto" << endl;
+    cout << "\t\t\t2. Buscar contacto" << endl;
+    cout << "\t\t\t3. Listar contactos" << endl;
+    cout << "\t\t\t4. Eliminar contacto" << endl;
+    cout << "\t\t\t5. Actualizar contacto" << endl;
+    cout << "\t\t\t6. Salir" << endl;
+    cout << "\t\t\t---------------------" << endl;
+    int opcion;
+    do {
+        cout << "\t\t\tSeleccione una opción: ";
+        cin >> opcion;
+        cin.ignore(); // Limpiar el buffer de entrada
+        switch (opcion) {
+            case 1:
+                menuIngresar(); // Llama a la función menuIngresar para ingresar un nuevo contacto
+                break;
+            case 2:
+                menuBuscar(); // Llama a la función menuBuscar para buscar un contacto
+                break;
+            case 3:
+                menuListar(); // Llama a la función menuListar para listar todos los contactos
+                break;
+            case 4:
+                menuEliminar(); // Llama a la función menuEliminar para eliminar un contacto
+                break;
+            case 5:
+                menuActualizar(); // Llama a la función menuActualizar para actualizar un contacto
+                break;
+            case 6:
+                cout << "\t\t\tSaliendo del programa..." << endl; // Mensaje de salida
+                break;
+            default:
+                cout << "\t\t\tOpción inválida. Intente nuevamente." << endl; // Mensaje de error si la opción no es válida
+        }
+    } while (opcion != 6); // El bucle se repite hasta que el usuario elige salir
 
-//actualizarContacto("",""); // Llama a la función actualizarContacto para actualizar un contacto
-listarContacto(); // Llama a la función listarContacto para mostrar todos los contactos después de actualizar uno
+    cout << "\t\t\tGracias por usar la agenda de contactos." << endl; // Mensaje de agradecimiento al salir
+
+    cout << "\t\t\t---------------------" << endl;
+
  return 0;
 }
 
