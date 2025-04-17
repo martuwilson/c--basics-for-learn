@@ -203,7 +203,7 @@ void menuEliminar(){
             cin >> opcion;
             cin.ignore(); // Limpiar el buffer de entrada
             if (opcion != 1 && opcion != 0) {
-                cout << "\t\tOpción inválida. Intente nuevamente: ";
+                cout << "\t\tOpcion invalida. Intente nuevamente: ";
             }
 
             switch (opcion) {
@@ -256,7 +256,7 @@ int main () {
     cout << "\t\t\t---------------------" << endl;
     int opcion;
     do {
-        cout << "\t\t\tSeleccione una opción: ";
+        cout << "\t\t\tSeleccione una opcion: ";
         cin >> opcion;
         cin.ignore(); // Limpiar el buffer de entrada
         switch (opcion) {
@@ -279,7 +279,7 @@ int main () {
                 cout << "\t\t\tSaliendo del programa..." << endl; // Mensaje de salida
                 break;
             default:
-                cout << "\t\t\tOpción inválida. Intente nuevamente." << endl; // Mensaje de error si la opción no es válida
+                cout << "\t\t\tOpcion invalida. Intente nuevamente." << endl; // Mensaje de error si la Opcion no es válida
         }
     } while (opcion != 6); // El bucle se repite hasta que el usuario elige salir
 
